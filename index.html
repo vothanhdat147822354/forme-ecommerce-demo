@@ -74,7 +74,7 @@
 
   // AUTUMN20 promotion: 20% off orders of $100 or more.
   function calculateDiscount(orderSubtotal){
-    if(orderSubtotal > 100){
+    if(orderSubtotal >= 100){
       return Math.round(orderSubtotal*0.20*100)/100;
     }
     return 0;
