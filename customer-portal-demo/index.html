@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Northstar — Client Account Portal | Security Review Demo</title>
+<style>
+:root{--bg:#07101c;--panel:#0f1a2b;--panel2:#132238;--line:#273952;--text:#f2f7ff;--muted:#92a5bd;--blue:#6d9cff;--mint:#6ce3c5;--purple:#b0a3ff;--gold:#ffc889;--red:#f17d8c;--shadow:0 24px 88px #020710b8}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);min-height:100vh}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid var(--mint);outline-offset:3px}a{color:inherit}svg{display:block}.shell{width:min(1360px,calc(100% - 72px));margin:auto}.top{position:relative;z-index:2;border-bottom:1px solid #25324c;background:#081321e8}.top .shell{height:82px;display:flex;align-items:center;gap:22px}.brand{display:flex;align-items:center;gap:12px;font-size:23px;font-weight:800;letter-spacing:-1.2px;text-decoration:none}.brand-mark{width:36px;height:36px;position:relative;background:linear-gradient(145deg,#90bcff,#3d6df1);border-radius:12px;box-shadow:0 0 30px #457bfa40}.brand-mark:after{content:"";position:absolute;inset:8px 7px 8px 8px;background:#081321;clip-path:polygon(0 100%,34% 0,55% 49%,85% 0,100% 100%,70% 100%,53% 75%,29% 100%)}.wordmark em{color:#7aaaff;font-style:normal}.top-right{margin-left:auto;display:flex;align-items:center;gap:14px}.top-link{font-size:12px;font-weight:600;color:#b2c4df;text-decoration:none}.pill{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;font-size:10px;font-weight:800;letter-spacing:1px;color:#c9f6e8;background:#14302c;border:1px solid #366859;border-radius:100px}.dot{width:6px;height:6px;border-radius:50%;background:var(--mint);box-shadow:0 0 12px var(--mint)}.hero{position:relative;min-height:630px;overflow:hidden;background:radial-gradient(ellipse 700px 480px at 20% 41%,#17396a6b,transparent 72%),radial-gradient(ellipse 600px 420px at 74% 40%,#45306d3c,transparent 70%),linear-gradient(#07101c,#0b1727)}.hero:before{content:"";position:absolute;inset:0;opacity:.10;background-image:linear-gradient(#a4beee 1px,transparent 1px),linear-gradient(90deg,#a4beee 1px,transparent 1px);background-size:67px 67px;mask-image:linear-gradient(90deg,#000,transparent 85%);pointer-events:none}.hero:after{content:"";position:absolute;width:430px;height:430px;border:1px solid #5577c529;border-radius:50%;top:80px;left:-155px;box-shadow:0 0 0 65px #507ac408,0 0 0 135px #507ac406;pointer-events:none}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:74px;align-items:center;min-height:640px;padding-top:54px;padding-bottom:58px;position:relative}.eyebrow{display:flex;align-items:center;gap:9px;font-size:11px;font-weight:800;letter-spacing:2.1px;color:var(--mint);text-transform:uppercase}.line{width:30px;height:1px;background:var(--mint)}h1{font-size:clamp(43px,4.8vw,72px);font-weight:750;letter-spacing:-4px;line-height:1.07;margin:25px 0 23px;max-width:650px}h1 strong{font-weight:750;color:#91b4ff}h1 span{color:#dde8ff}.intro{font-size:16px;line-height:1.9;color:#a8bbd4;max-width:535px;margin:0}.features{display:flex;gap:27px;flex-wrap:wrap;margin-top:45px}.feature{display:flex;align-items:center;gap:10px;color:#cedcf1;font-size:12px;font-weight:700}.feature i{display:grid;place-items:center;flex:0 0 auto;width:30px;height:30px;background:#173a3d;border:1px solid #306263;border-radius:9px;color:var(--mint);font-style:normal;font-size:18px}.micro{margin-top:48px;display:flex;align-items:center;gap:13px}.avatars{display:flex;padding-left:6px}.avatar{margin-left:-7px;width:32px;height:32px;border-radius:50%;border:2px solid #071522;display:grid;place-items:center;color:#131d2a;font-size:10px;font-weight:900}.avatar:nth-child(1){background:#e6b699}.avatar:nth-child(2){background:#a9d1d5}.avatar:nth-child(3){background:#d3bcf1}.micro p{margin:0;font-size:12px;color:#899fb7;line-height:1.6}.micro b{color:#dce8f7}.auth{border:1px solid #364a66;background:linear-gradient(150deg,#182841f6,#0d1727f7);border-radius:24px;padding:35px 37px 30px;box-shadow:var(--shadow),0 0 100px #557fd11a;max-width:515px;margin-left:auto;position:relative;z-index:1}.auth:before{content:"";position:absolute;top:0;left:20%;width:60%;height:1px;background:linear-gradient(90deg,transparent,#90b6ff,transparent)}.auth-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:31px}.auth-icon{display:grid;place-items:center;width:50px;height:50px;border-radius:15px;background:#254676;border:1px solid #446fa5;font-size:26px;color:#c4dfff}.auth-tag{font-size:10px;font-weight:800;letter-spacing:1.4px;color:#b8cbea;background:#1b2b43;border:1px solid #364b69;padding:9px 11px;border-radius:9px}.auth h2{font-size:31px;letter-spacing:-1.4px;margin:0 0 10px}.sub{font-size:13px;color:var(--muted);line-height:1.65;margin:0 0 28px}.field{display:block;margin:17px 0}.field-head{display:flex;justify-content:space-between;margin-bottom:9px;color:#d4e2f5;font-size:12px;font-weight:700}.field-head small{color:#8295ad;font-size:11px;font-weight:500}.input-wrap{display:flex;align-items:center;background:#091421;border:1px solid #354761;border-radius:11px;height:51px;transition:border-color .15s}.input-wrap:focus-within{border-color:#83aaff}.input-wrap .sym{padding-left:16px;color:#7c9abf;font-size:16px}.input-wrap input{border:0;background:none;color:#e4eeff;padding:0 12px;outline:none;min-width:0;flex:1;width:100%;font-size:13px}.input-wrap input[readonly]{cursor:default}.eye{background:none;border:0;padding:14px;color:#b0bfd4;font-size:12px}.demo-note{margin-top:22px;border:1px solid #385b59;background:#102b2d;color:#b6dbd2;padding:12px 13px;line-height:1.6;font-size:11px;border-radius:10px}.demo-note strong{color:#c9fff1}.cta{display:flex;align-items:center;justify-content:space-between;width:100%;padding:16px 18px;background:linear-gradient(120deg,#83aafa,#5e8dff);color:#08182a;font-weight:850;font-size:14px;border:0;border-radius:11px;margin-top:21px;box-shadow:0 12px 26px #426bfa38;transition:transform .15s}.cta:hover{transform:translateY(-2px)}.auth-bottom{text-align:center;color:#8c9eb6;font-size:11px;margin-top:20px}.auth-bottom strong{color:#dceafe}.bottom-section{background:#0b1523;border-top:1px solid #22334a;padding:35px 0 45px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:15px;margin-bottom:16px}.section-head h3{font-size:16px;letter-spacing:-.3px;margin:0}.section-head span{font-size:11px;color:#7f97b2}.audit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.audit-card{background:#121f31;border:1px solid #2b415c;padding:17px 19px;border-radius:13px}.audit-card .icon{font-size:17px;margin-bottom:13px}.audit-card h4{font-size:12px;margin:0 0 6px}.audit-card p{color:#8298b2;font-size:11px;margin:0;line-height:1.65}.audit-card code{color:#b1d1ff}.footer{border-top:1px solid #1a2a3c;background:#08111d;color:#617b99;font-size:11px;padding:21px 0}.footer .shell{display:flex;justify-content:space-between;gap:18px}.dashboard{display:none;background:radial-gradient(circle at 70% 0%,#1a3b6460,transparent 45%),var(--bg);min-height:640px;padding:37px 0 50px}.dashboard.active{display:block}.hero.hidden{display:none}.dashboard-top{display:flex;align-items:center;justify-content:space-between;margin:0 0 28px}.dashboard-title small{letter-spacing:2px;color:var(--mint);font-size:11px;font-weight:800}.dashboard-title h2{font-size:36px;letter-spacing:-1.5px;margin:6px 0 0}.reset{background:#162840;color:#d5e4ff;border:1px solid #364f6e;border-radius:10px;padding:12px 17px;font-size:12px}.dashboard-grid{display:grid;grid-template-columns:1.65fr 1fr;gap:20px}.dash-card{border:1px solid #2d4160;border-radius:20px;background:linear-gradient(135deg,#15253b,#0d192a);padding:27px}.dash-card h3{font-size:14px;letter-spacing:-.2px;margin:0 0 24px}.profile{display:flex;gap:17px;align-items:center}.profile-ava{width:72px;height:72px;border-radius:19px;background:linear-gradient(135deg,#d7a58a,#97759c);display:grid;place-items:center;font-size:26px;color:#17101b;font-weight:900}.profile h4{font-size:21px;margin:0 0 5px}.profile p{font-size:12px;color:#93a9c3;margin:0}.details{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:14px}.detail{padding:15px;background:#0e1b2d;border:1px solid #2a3d55;border-radius:11px}.detail small{display:block;font-size:10px;color:#7893b1;margin-bottom:8px}.detail strong{font-size:12px;overflow-wrap:anywhere}.secure-row{display:flex;align-items:center;gap:11px;margin:16px 0;padding:13px;background:#132a2d;border:1px solid #2f5753;border-radius:10px;color:#b4e7d7;font-size:12px}.secure-row .dot{flex:0 0 auto}.action-link{background:#244a7c;color:#d8eaff;padding:11px 14px;border:1px solid #4874b1;border-radius:9px;font-size:12px;font-weight:800;margin-top:10px}.timeline{display:grid;gap:12px}.event{display:flex;gap:12px;align-items:center;border:1px solid #314660;border-radius:11px;padding:12px;background:#101f32}.event-symbol{width:32px;height:32px;display:grid;place-items:center;background:#1d3855;border-radius:9px;color:#a3d2ff}.event b{display:block;font-size:12px}.event small{font-size:10px;color:#7996b6}.dash-warning{font-size:12px;color:#9ab1ca;line-height:1.7;margin-top:20px}.dash-warning b{color:#d9e8fa}.toast{position:fixed;z-index:100;bottom:22px;right:22px;max-width:345px;background:#1c3650;color:#d9f6ee;border:1px solid #356d71;padding:13px 17px;border-radius:11px;font-size:12px;box-shadow:0 14px 60px #0008;opacity:0;transform:translateY(12px);transition:all .2s;pointer-events:none}.toast.show{opacity:1;transform:none}
+@media(max-width:1000px){.hero-grid{gap:30px}.auth{padding:27px}.shell{width:min(100% - 36px,1360px)}h1{font-size:51px;letter-spacing:-2.5px}}@media(max-width:760px){.top .shell{height:66px}.brand{font-size:20px}.top-link{display:none}.hero-grid{grid-template-columns:1fr;padding-top:51px;padding-bottom:44px;min-height:0;gap:33px}h1{font-size:47px}.intro{font-size:14px}.features{margin-top:28px}.micro{margin-top:27px}.auth{max-width:100%;margin:0}.audit-grid{grid-template-columns:1fr}.footer .shell{flex-direction:column}.dashboard-grid{grid-template-columns:1fr}.dashboard-top{align-items:flex-start;gap:10px}.dashboard-title h2{font-size:29px}}@media(max-width:420px){.shell{width:calc(100% - 28px)}h1{font-size:40px}.auth{padding:24px 19px}.details{grid-template-columns:1fr}.top-right .pill{font-size:8px;padding:7px 8px}}
+</style>
+</head>
+<body>
+<header class="top"><div class="shell"><a href="#" class="brand" id="homeBrand"><span class="brand-mark"></span><span class="wordmark">northstar<em>.</em></span></a><div class="top-right"><span class="top-link">Client Access Platform</span><span class="pill"><span class="dot"></span> SANDBOX DEMO</span></div></div></header>
+<main>
+<section class="hero" id="loginScreen"><div class="shell hero-grid">
+<div>
+<div class="eyebrow"><span class="line"></span> SECURE CUSTOMER EXPERIENCE</div>
+<h1>Your world.<br><strong>One secure</strong><br><span>connection.</span></h1>
+<p class="intro">A beautifully simple space to manage your account, review activity, and stay connected. One seamless experience built around you.</p>
+<div class="features"><div class="feature"><i>✓</i> Personal dashboard</div><div class="feature"><i>✓</i> Account insights</div><div class="feature"><i>✓</i> Activity overview</div></div>
+<div class="micro"><div class="avatars"><span class="avatar">AM</span><span class="avatar">JL</span><span class="avatar">SK</span></div><p><b>Designed for the modern customer.</b><br>Minimal, fast, and effortless.</p></div>
+</div>
+<section class="auth" aria-label="Demo sign-in form">
+<div class="auth-top"><div class="auth-icon">✧</div><span class="auth-tag">CLIENT PORTAL</span></div>
+<h2>Welcome back.</h2><p class="sub">Access your Northstar workspace using the sample account below.</p>
+<form id="loginForm" autocomplete="off">
+<label class="field"><span class="field-head">Email address <small>Fictional demo identity</small></span><span class="input-wrap"><span class="sym">✉</span><input id="email" type="text" readonly value="alex.morgan@example.invalid" aria-label="Sample email, read only"></span></label>
+<label class="field"><span class="field-head">Password <small>Demo-only sample</small></span><span class="input-wrap"><span class="sym">◆</span><input id="password" type="password" readonly value="FAKE_DEMO_9R2_ONLY" aria-label="Sample password, read only"><button type="button" id="togglePassword" class="eye">SHOW</button></span></label>
+<div class="demo-note"><strong>Controlled security-review lab.</strong> These credentials are completely fictional and cannot authenticate a real customer. The page has no backend, tracking, credential storage, or network requests.</div>
+<button class="cta" type="submit"><span>Sign in to demo account</span><span>↗</span></button>
+</form>
+<div class="auth-bottom">Protected experience concept · <strong>Northstar Access</strong></div>
+</section>
+</div></section>
+<section class="dashboard" id="dashboard" aria-label="Sample customer dashboard"><div class="shell">
+<div class="dashboard-top"><div class="dashboard-title"><small>CLIENT WORKSPACE</small><h2>Good afternoon, Alex.</h2></div><button id="resetDemo" class="reset">↶ Return to sign-in</button></div>
+<div class="dashboard-grid">
+<section class="dash-card"><h3>My account</h3><div class="profile"><div class="profile-ava">AM</div><div><h4>Alex Morgan</h4><p>Northstar member · Demo profile</p></div></div><div class="details"><div class="detail"><small>EMAIL</small><strong>alex.morgan@example.invalid</strong></div><div class="detail"><small>MEMBERSHIP</small><strong>Northstar Plus</strong></div><div class="detail"><small>ACCOUNT NUMBER</small><strong>DEMO-000184</strong></div><div class="detail"><small>PROFILE STATUS</small><strong>Sample account</strong></div></div><div class="secure-row"><span class="dot"></span> Fictional account loaded successfully</div><button class="action-link" id="detailsButton">View account summary →</button></section>
+<aside class="dash-card"><h3>Recent account activity</h3><div class="timeline"><div class="event"><div class="event-symbol">✓</div><div><b>Demo sign-in completed</b><small>Local browser simulation · Just now</small></div></div><div class="event"><div class="event-symbol">◈</div><div><b>Account preferences viewed</b><small>Sample history · Yesterday</small></div></div><div class="event"><div class="event-symbol">▣</div><div><b>Profile created</b><small>Sample history · Earlier this month</small></div></div></div><p class="dash-warning"><b>For reviewers:</b> Open browser DevTools → Console when signing in to inspect diagnostic output. This is a demonstration of logging practices, not a real-world data leak.</p></aside>
+</div></div></section>
+<section class="bottom-section" id="reviewNotes"><div class="shell"><div class="section-head"><h3>Security review exercise</h3><span>Developer training environment · Fictional data only</span></div><div class="audit-grid"><div class="audit-card"><div class="icon">◇</div><h4>Authentication logging</h4><p>Review code paths that handle <code>email</code> and <code>password</code> to ensure they are never written to diagnostic logs.</p></div><div class="audit-card"><div class="icon">▣</div><h4>No real credentials</h4><p>The sample fields are read-only. There is no real account authentication and no collection of visitor-entered passwords.</p></div><div class="audit-card"><div class="icon">⌘</div><h4>Review on GitHub</h4><p>Compare the safe baseline to the experimental debug branch. Examine the diff and let CodeRabbit review the potential exposure.</p></div></div></div></section>
+</main>
+<footer class="footer"><div class="shell"><span>© 2026 Northstar. Fictional product for code-review education.</span><span>Local-only demo · No API, no analytics, no real personal information</span></div></footer>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  'use strict';
+  const sampleCredentials = Object.freeze({ email: 'alex.morgan@example.invalid', password: 'FAKE_DEMO_9R2_ONLY' });
+  const get = id => document.getElementById(id);
+  let toastTimeout;
+
+  function showToast(message){
+    const el = get('toast'); el.textContent = message; el.classList.add('show');
+    clearTimeout(toastTimeout); toastTimeout = setTimeout(() => el.classList.remove('show'), 3000);
+  }
+
+  function recordSignIn(email, password){
+    // SECURITY REQUIREMENT: Never log plaintext credentials or store them in client-side caches.
+    // Only non-sensitive status information should be recorded.
+    console.info('[Northstar] Demo sign-in event', { action: 'demo-login', outcome: 'success' });
+  }
+
+  function performDemoSignIn(){
+    // Fixed fictional values ONLY; no user-entered credentials, backend, or network calls.
+    recordSignIn(sampleCredentials.email, sampleCredentials.password);
+    get('loginScreen').classList.add('hidden');
+    get('dashboard').classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+    showToast('Fictional demo account opened — no authentication request was sent.');
+  }
+
+  get('loginForm').addEventListener('submit',function(event){
+    event.preventDefault();
+    performDemoSignIn();
+  });
+  get('togglePassword').addEventListener('click',function(){
+    const field = get('password');
+    const show = field.type === 'password';
+    field.type = show ? 'text' : 'password';
+    this.textContent = show ? 'HIDE' : 'SHOW';
+  });
+  get('resetDemo').addEventListener('click',function(){
+    get('dashboard').classList.remove('active');
+    get('loginScreen').classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+  get('detailsButton').addEventListener('click',function(){ showToast('This is a fictional dashboard — no real customer data exists.'); });
+  get('homeBrand').addEventListener('click',function(e){
+    e.preventDefault();
+    get('dashboard').classList.remove('active');
+    get('loginScreen').classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+})();
+</script>
+</body>
+</html>
