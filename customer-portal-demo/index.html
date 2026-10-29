@@ -26,9 +26,9 @@
 <div class="auth-top"><div class="auth-icon">✧</div><span class="auth-tag">CLIENT PORTAL</span></div>
 <h2>Welcome back.</h2><p class="sub">Access your Northstar workspace using the sample account below.</p>
 <form id="loginForm" autocomplete="off">
-<label class="field"><span class="field-head">Email address <small>Fictional demo identity</small></span><span class="input-wrap"><span class="sym">✉</span><input id="email" type="text" readonly value="alex.morgan@example.invalid" aria-label="Sample email, read only"></span></label>
-<label class="field"><span class="field-head">Password <small>Demo-only sample</small></span><span class="input-wrap"><span class="sym">◆</span><input id="password" type="password" readonly value="FAKE_DEMO_9R2_ONLY" aria-label="Sample password, read only"><button type="button" id="togglePassword" class="eye">SHOW</button></span></label>
-<div class="demo-note"><strong>Controlled security-review lab.</strong> These credentials are completely fictional and cannot authenticate a real customer. The page has no backend, tracking, credential storage, or network requests.</div>
+<label class="field"><span class="field-head">Email address <small>Fictional demo identity</small></span><span class="input-wrap"><span class="sym">✉</span><input id="email" type="email" autocomplete="off" placeholder="Enter demo email" required aria-label="Demo email address"></span></label>
+<label class="field"><span class="field-head">Password <small>Demo-only sample</small></span><span class="input-wrap"><span class="sym">◆</span><input id="password" type="password" autocomplete="new-password" placeholder="Enter demo password" required aria-label="Demo password"><button type="button" id="togglePassword" class="eye">SHOW</button></span></label>
+<div style="display:flex;justify-content:flex-end;margin:11px 0 8px"><button type="button" id="fillDemo" style="background:#1c3957;border:1px solid #44658a;border-radius:9px;color:#cde6ff;padding:8px 12px;font-size:11px;font-weight:700">✦ Autofill demo credentials</button></div><div class="demo-note"><strong>Controlled security-review lab.</strong> These credentials are completely fictional and cannot authenticate a real customer. The page has no backend, tracking, credential storage, or network requests. Enter only demo credentials, never a real password. <details style="margin-top:8px"><summary style="cursor:pointer;font-weight:700">Show sample login details</summary><div style="padding-top:6px">Email: alex.morgan@example.invalid<br>Password: FAKE_DEMO_9R2_ONLY</div></details></div>
 <button class="cta" type="submit"><span>Sign in to demo account</span><span>↗</span></button>
 </form>
 <div class="auth-bottom">Protected experience concept · <strong>Northstar Access</strong></div>
@@ -64,8 +64,9 @@
   }
 
   function performDemoSignIn(){
-    // Fixed fictional values ONLY; no user-entered credentials, backend, or network calls.
+    // Validated fictional values ONLY; no real-user authentication or network calls.
     recordSignIn(sampleCredentials.email, sampleCredentials.password);
+    get('password').value = '';
     get('loginScreen').classList.add('hidden');
     get('dashboard').classList.add('active');
     window.scrollTo({top:0,behavior:'smooth'});
@@ -74,7 +75,17 @@
 
   get('loginForm').addEventListener('submit',function(event){
     event.preventDefault();
+    if (get('email').value.trim() !== sampleCredentials.email || get('password').value !== sampleCredentials.password) {
+      get('password').value = '';
+      showToast('Demo account only. Use the sample credentials or Autofill.');
+      return;
+    }
     performDemoSignIn();
+  });
+  get('fillDemo').addEventListener('click',function(){
+    get('email').value = sampleCredentials.email;
+    get('password').value = sampleCredentials.password;
+    showToast('Demo login details filled. You can now sign in.');
   });
   get('togglePassword').addEventListener('click',function(){
     const field = get('password');
