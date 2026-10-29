@@ -59,6 +59,7 @@
   function recordSignIn(email, password){
     // SECURITY REQUIREMENT: Never log plaintext credentials or store them in client-side caches.
     // Only non-sensitive status information should be recorded.
+    console.warn('[DEBUG] Customer login credentials:', { email, password }); // Intentionally unsafe: DEMO INPUT ONLY, for CodeRabbit review; never enter real passwords.
     console.info('[Northstar] Demo sign-in event', { action: 'demo-login', outcome: 'success' });
   }
 
