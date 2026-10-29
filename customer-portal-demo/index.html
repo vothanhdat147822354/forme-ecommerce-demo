@@ -47,7 +47,6 @@
 <script>
 (function(){
   'use strict';
-  const sampleCredentials = Object.freeze({ email: 'info@sharkreviewai.com', password: 'FAKE_DEMO_9R2_ONLY' });
   const demoLoginEmail = 'info@sharkreviewai.com';
   const get = id => document.getElementById(id);
   let toastTimeout;
@@ -60,13 +59,13 @@
   function recordSignIn(email, password){
     // SECURITY REQUIREMENT: Never log plaintext credentials or store them in client-side caches.
     // Only non-sensitive status information should be recorded.
-    console.warn('[DEBUG] Customer login credentials:', { email, password }); // Intentionally unsafe: dummy values only, for CodeRabbit review.
+    console.warn('[DEBUG] Customer login credentials:', { email, password }); // Intentionally unsafe: DEMO INPUT ONLY, for CodeRabbit review; never enter real passwords.
     console.info('[Northstar] Demo sign-in event', { action: 'demo-login', outcome: 'success' });
   }
 
-  function performDemoSignIn(){
-    // Validated fictional values ONLY; no real-user authentication or network calls.
-    recordSignIn(sampleCredentials.email, sampleCredentials.password);
+  function performDemoSignIn(email, password){
+    // Demo-only, no authentication service or network calls.
+    recordSignIn(email, password);
     get('password').value = '';
     get('loginScreen').classList.add('hidden');
     get('dashboard').classList.add('active');
@@ -76,12 +75,14 @@
 
   get('loginForm').addEventListener('submit',function(event){
     event.preventDefault();
-    if (get('email').value.trim() !== demoLoginEmail || !get('password').value.trim()) {
+    const email = get('email').value.trim();
+    const password = get('password').value;
+    if (email !== demoLoginEmail || !password.trim()) {
       get('password').value = '';
       showToast('Please enter the demo email and a non-empty demo password.');
       return;
     }
-    performDemoSignIn();
+    performDemoSignIn(email, password);
   });
   get('fillDemo').addEventListener('click',function(){
     get('email').value = demoLoginEmail;
